@@ -13,13 +13,27 @@ int main()
     {
         scanf("%d", &arr[i]);
     }
-    printf("Enter the Even Position Number:\n");
-    scanf("%d", &position);
-    if (position > 0 || position % 2 = 0 || position >= size)
-    {
-        printf("Enter the nev element:\n");
-        scanf("%d", &newelement);
+    for (;;)
+    { // Infinite loop to repeatedly ask for valid input
+        printf("Enter the even index position: ");
+        scanf("%d", &position);
+
+        // Validate the position
+        if (position > 0 && position % 2 != 0 && position <= size) {
+            printf("Invalid input. Please enter an even index:\n");
+        }
+        else
+        {
+            break; // If valid input, exit the loop
+        }
     }
+    for (int i = size; i >= position-1; i--)
+    {
+        arr[i+1] = arr[i];
+    }
+    printf("Enter the new element:\n");
+    scanf("%d", &newelement);
+    arr[position-1] = newelement;
     
     printf("The array is:\n");//here the code will print sorted array that user entered previously.
     for(int i=0; i < size+1; i++)
