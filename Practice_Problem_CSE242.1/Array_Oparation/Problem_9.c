@@ -1,13 +1,13 @@
-// Declare an Array, take Size, Elements dynamically. Insert an
-// element in any of the Even index position except 0th index.
-// [Take the position dynamically]
+// Declare an Array, take Size, Elements dynamically.
+// Delete an element in any of the Odd index position.
+// [Take the positiondynamically]
 #include <stdio.h>
 int main()
 {
-    int size, position, newelement;
+    int size, position;
     printf("Enter The Array Size:\n");
     scanf("%d", &size);//Here we will input the array size we want.
-    int arr[size+1];
+    int arr[size];
     printf("Enter The Array Elements:\n");
      for(int i=0; i < size; i++)//In this loop we will enter the elements that we want.
     {
@@ -15,29 +15,26 @@ int main()
     }
     for (;;)
     { // Infinite loop to repeatedly ask for valid input
-        printf("Enter the even index position: ");
+        printf("Enter the odd position:");
         scanf("%d", &position);
 
         // Validate the position
-        if (position == 0 || position % 2 != 0 || position > size)
-        {
-            printf("Invalid input. Please enter an even index:\n");
+        if (position == 0 || position % 2 == 0 || position > size) {
+            printf("Invalid input. Please enter an odd position:\n");
         }
         else
         {
             break; // If valid input, exit the loop
         }
     }
-    for (int i = size; i >= position-1; i--)
+    for (int i = position-1; i < size-1; i++)
     {
-        arr[i+1] = arr[i];
+        arr[i] = arr[i+1];
     }
-    printf("Enter the new element:\n");
-    scanf("%d", &newelement);
-    arr[position-1] = newelement;
+    size--;
     
     printf("The array is:\n");//here the code will print sorted array that user entered previously.
-    for(int i=0; i < size+1; i++)
+    for(int i=0; i < size; i++)
     {
         printf("%d ", arr[i]);
     }
