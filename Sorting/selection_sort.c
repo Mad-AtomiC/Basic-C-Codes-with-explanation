@@ -1,3 +1,4 @@
+//Here we will take input for array and will sort them with selection sort
 #include <stdio.h>
 
 int main() {
